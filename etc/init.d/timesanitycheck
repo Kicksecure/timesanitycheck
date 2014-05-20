@@ -69,6 +69,7 @@ log() {
 #set -x
 
 do_start () {
+   log_action_begin_msg "Running $NAME"
    if [ -e "$FAIL_FILE" ]; then
       rm -f "$FAIL_FILE"
    fi
@@ -121,25 +122,31 @@ do_start () {
    log "(Current time $BOOT_TIME ($BOOT_UNIXTIME).)"
 
    touch "$SUCCESS_FILE"
+   log_action_end_msg 0
    return 0
 }
 
 do_stop() {
+   log_action_begin_msg "Stopping $NAME"
    if [ -e "$FAIL_FILE" ]; then
       rm -f "$FAIL_FILE"
    fi
    if [ -e "$SUCCESS_FILE" ]; then
       rm -f "$SUCCESS_FILE"
    fi
+   log_action_end_msg 0
    return 0
 }
 
 do_status () {
    if [ -e "$FAIL_FILE" ]; then
+      log_success_msg "$NAME fail 1"
       return 1
    elif [ -e "$SUCCESS_FILE" ]; then
+      log_success_msg "$NAME ok"
       return 0
    else
+      log_success_msg "$NAME fail 2"
       return 2
    fi
 }
@@ -152,6 +159,8 @@ case "$1" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
 	esac
+	do_status
+	exit 0
 	;;
   stop)
 	do_stop
@@ -159,10 +168,14 @@ case "$1" in
   restart)
 	do_stop
 	do_start
+	do_status
+	exit 0
 	;;
   force-reload)
 	do_stop
 	do_start
+	do_status
+	exit 0
         ;;
   status)
 	do_status
