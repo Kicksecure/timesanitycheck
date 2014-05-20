@@ -15,4 +15,21 @@ Standards-Version: 3.9.4
 Package: timesanitycheck
 Architecture: all
 Depends: logrotate, ${misc:Depends}
-Description: Checks if the system clock is between build timestamp and expiration date
+Recommends: timesync
+Description: Checks if the system clock is sanely between build timestamp and expiration date
+ Reports, if clock is sane and not slower than build timestamp or faster than
+ expiration date (configurable, default currently set to 17 MAY 2033 10:00:00).
+ .
+ This should catch situations, where the host's clock is too much off (CMOS
+ battery defect, user mistakenly set a very wrong date, etc.), resulting in
+ network time synchronization tools (such as sdwdate) no longer being able to
+ correct the clock; catch eventual eventual bigger bugs in network time
+ synchronization tools; and some types of attacks on network time
+ synchronization.
+ .
+ Since notifications in terminal during boot messages are not well visible and
+ since manually running timesanitycheck before and after running network time
+ synchronization is inconvenient, it is recommended to install the timesync
+ package as well, which will automate running timesanitycheck before and after
+ running sdwdate and inform the user in case the clock is not sane with
+ messages in X as well as in tty1.
