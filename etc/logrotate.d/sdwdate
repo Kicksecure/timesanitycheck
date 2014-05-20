@@ -1,0 +1,6 @@
+/var/log/timesanitycheck.log {
+    rotate 1
+    weekly
+    compress
+    missingok
+}
