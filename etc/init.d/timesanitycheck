@@ -100,9 +100,9 @@ do_start () {
 
    ## expiration date
    ## EXPIRATION_UNIXTIME variable gets sourced from /etc/default/$NAME
-   EXPIRATION_TIME="$(date --date=@$EXPIRATION_UNIXTIME)"
+   EXPIRATION_TIME="$(date --date="@$EXPIRATION_UNIXTIME")"
 
-   if [ $BOOT_UNIXTIME -lt $BUILD_UNIXTIME ]; then
+   if [ "$BOOT_UNIXTIME" -lt "$BUILD_UNIXTIME" ]; then
       log "The clock is slow."
       log "      (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than"
       log "the build timestamp $BUILD_TIME ($BOOT_UNIXTIME).)"
@@ -110,7 +110,7 @@ do_start () {
       return 2
    fi
 
-   if [ $BOOT_UNIXTIME -gt $EXPIRATION_UNIXTIME ]; then
+   if [ "$BOOT_UNIXTIME" -gt "$EXPIRATION_UNIXTIME" ]; then
       log "The clock is fast."
       log "      (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than"
       log "the build timestamp $EXPIRATION_TIME ($EXPIRATION_UNIXTIME).)"
