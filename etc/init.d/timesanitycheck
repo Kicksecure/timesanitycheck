@@ -78,7 +78,7 @@ do_start () {
    fi
 
    local build_timestamp_file
-   if [ -f /usr/share/whonix/build_timestamp ]; then
+   if [ -f "/usr/share/whonix/build_timestamp" ]; then
       ## Originally, this was a Whonix specific script.
       ## Prefer the eventually existing older version.
       build_timestamp_file="/usr/share/whonix/build_timestamp"
