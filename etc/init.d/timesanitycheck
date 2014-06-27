@@ -103,26 +103,35 @@ do_start () {
    EXPIRATION_TIME="$(date --date="@$EXPIRATION_UNIXTIME")"
 
    if [ "$BOOT_UNIXTIME" -lt "$BUILD_UNIXTIME" ]; then
-      log "The clock is slow."
-      log "      (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than"
-      log "the build timestamp $BUILD_TIME ($BOOT_UNIXTIME).)"
+      MSG="
+The clock is slow.
+       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than
+ the build timestamp $BUILD_TIME ($BOOT_UNIXTIME).)
+"
+      log "$MSG"
+      log_daemon_msg "$MSG"
       touch "$FAIL_FILE"
       return 2
    fi
 
    if [ "$BOOT_UNIXTIME" -gt "$EXPIRATION_UNIXTIME" ]; then
-      log "The clock is fast."
-      log "      (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than"
-      log "the build timestamp $EXPIRATION_TIME ($EXPIRATION_UNIXTIME).)"
+      MSG="
+The clock is fast.
+       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than
+ the build timestamp $EXPIRATION_TIME ($EXPIRATION_UNIXTIME).)
+"
+      log "$MSG"
+      log_daemon_msg "$MSG"
       touch "$FAIL_FILE"
       return 2
    fi
 
-   log "The clock is sane."
-   log "(Current time $BOOT_TIME ($BOOT_UNIXTIME).)"
-
+   MSG="The clock is sane.
+Current time $BOOT_TIME ($BOOT_UNIXTIME)."
+   log "$MSG"
    touch "$SUCCESS_FILE"
-   log_action_end_msg 0
+   MSG="The clock is sane."
+   log_action_end_msg 0 "$MSG"
    return 0
 }
 
@@ -140,13 +149,13 @@ do_stop() {
 
 do_status () {
    if [ -e "$FAIL_FILE" ]; then
-      log_failure_msg "$NAME fail 1"
+      log_failure_msg "$NAME"
       return 1
    elif [ -e "$SUCCESS_FILE" ]; then
-      log_success_msg "$NAME ok"
+      log_success_msg "$NAME"
       return 0
    else
-      log_failure_msg "$NAME fail 2"
+      log_failure_msg "$NAME (unexpected error - please report this bug!)"
       return 2
    fi
 }
@@ -159,7 +168,6 @@ case "$1" in
 		0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
 		2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
 	esac
-	do_status
 	exit 0
 	;;
   stop)
@@ -168,7 +176,6 @@ case "$1" in
   restart)
 	do_stop
 	do_start
-	do_status
 	exit 0
 	;;
   force-reload)
