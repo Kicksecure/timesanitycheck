@@ -140,13 +140,13 @@ do_stop() {
 
 do_status () {
    if [ -e "$FAIL_FILE" ]; then
-      log_success_msg "$NAME fail 1"
+      log_failure_msg "$NAME fail 1"
       return 1
    elif [ -e "$SUCCESS_FILE" ]; then
       log_success_msg "$NAME ok"
       return 0
    else
-      log_success_msg "$NAME fail 2"
+      log_failure_msg "$NAME fail 2"
       return 2
    fi
 }
