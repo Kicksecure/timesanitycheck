@@ -1,3 +1,9 @@
+timesanitycheck (3:0.6-1) unstable; urgency=low
+
+  * New upstream version.
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Wed, 04 Feb 2015 00:52:16 +0000
+
 timesanitycheck (3:0.5-1) unstable; urgency=low
 
   * New upstream version.
