@@ -1,0 +1,21 @@
+#!/bin/bash
+
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+set -e
+
+source /usr/share/timesanitycheck/shared
+
+do_status() {
+   if [ -e "$FAIL_FILE" ]; then
+      exit 2
+   elif [ -e "$SUCCESS_FILE" ]; then
+      exit 0
+   else
+      exit 3
+   fi
+}
+
+do_status

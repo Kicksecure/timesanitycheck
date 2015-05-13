@@ -1,0 +1,70 @@
+#!/bin/bash
+
+## This file is part of Whonix.
+## Copyright (C) 2012 - 2014 Patrick Schleizer <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+source /usr/share/timesanitycheck/shared
+
+do_start() {
+   if [ -e "$FAIL_FILE" ]; then
+      rm -f "$FAIL_FILE"
+   fi
+   if [ -e "$SUCCESS_FILE" ]; then
+      rm -f "$SUCCESS_FILE"
+   fi
+
+   local build_timestamp_file
+   if [ -f "/usr/share/whonix/build_timestamp" ]; then
+      ## Originally, this was a Whonix specific script.
+      ## Prefer the eventually existing older version.
+      build_timestamp_file="/usr/share/whonix/build_timestamp"
+   elif [ -f /var/lib/anon-dist/build_version ]; then
+      build_timestamp_file="/var/lib/anon-dist/build_version"
+   else
+      ## TODO: What file exists on any system and has a high probability
+      ##       of never getting touched?
+      build_timestamp_file="/usr/share/zoneinfo/UTC"
+   fi
+
+   ## build timestamp
+   BUILD_UNIXTIME="$(date -r "$build_timestamp_file" +%s)"
+   BUILD_TIME="$(date -r "$build_timestamp_file")"
+
+   ## time after boot
+   BOOT_UNIXTIME="$(date +%s)"
+   BOOT_TIME="$(date)"
+
+   ## expiration date
+   ## EXPIRATION_UNIXTIME variable gets sourced from /etc/default/$NAME
+   EXPIRATION_TIME="$(date --date="@$EXPIRATION_UNIXTIME")"
+
+   if [ "$BOOT_UNIXTIME" -lt "$BUILD_UNIXTIME" ]; then
+      MSG="
+The clock is slow.
+       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than
+ the build timestamp $BUILD_TIME ($BOOT_UNIXTIME).)
+"
+      log "$MSG"
+      touch "$FAIL_FILE"
+      exit 2
+   fi
+
+   if [ "$BOOT_UNIXTIME" -gt "$EXPIRATION_UNIXTIME" ]; then
+      MSG="
+The clock is fast.
+       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than
+ the build timestamp $EXPIRATION_TIME ($EXPIRATION_UNIXTIME).)
+"
+      log "$MSG"
+      touch "$FAIL_FILE"
+      exit 3
+   fi
+
+   MSG="The clock is sane.
+Current time $BOOT_TIME ($BOOT_UNIXTIME)."
+   log "$MSG"
+   touch "$SUCCESS_FILE"
+}
+
+do_start
