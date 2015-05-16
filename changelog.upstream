@@ -1,3 +1,15 @@
+commit fee20a038d26f281fbbcfe904ece3bd11f556bf9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat May 16 03:54:24 2015 +0000
+
+    fix, renamed lib/systemd/system/timesanitycheck to lib/systemd/system/timesanitycheck.service
+
+commit 066ab546c000c485df0000220f27b3a11161f6a5
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed May 13 20:18:38 2015 +0000
+
+    bumped changelog version
+
 commit 9936bb66743caec703bde1443b83a615e509b257
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed May 13 20:18:15 2015 +0000

@@ -1,3 +1,9 @@
+timesanitycheck (3:1.1-1) unstable; urgency=low
+
+  * New upstream version (local package).
+
+ -- Patrick Schleizer <adrelanos@riseup.net>  Sat, 16 May 2015 03:55:36 +0000
+
 timesanitycheck (3:1.0-1) unstable; urgency=low
 
   * New upstream version (local package).
