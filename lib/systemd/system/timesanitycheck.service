@@ -3,17 +3,17 @@
 ## See the file COPYING for copying conditions.
 
 [Unit]
-Description = checks if the system clock is between build timestamp and expiration date
-Documentation = https://github.com/Whonix/timesanitycheck
-Wants = bootclockrandomization.service
-Before = sdwdate.service
-Before = tor.service
+Description=checks if the system clock is between build timestamp and expiration date
+Documentation=https://github.com/Whonix/timesanitycheck
+Wants=bootclockrandomization.service
+Before=sdwdate.service
+Before=tor.service
 
 [Service]
-Type = oneshot
-RemainAfterExit = yes
-ExecStart = /usr/share/timesanitycheck/start
-ExecStop = /usr/share/timesanitycheck/stop
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/share/timesanitycheck/start
+ExecStop=/usr/share/timesanitycheck/stop
 
 [Install]
-WantedBy = multi-user.target
+WantedBy=multi-user.target
