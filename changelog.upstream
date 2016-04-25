@@ -1,3 +1,15 @@
+commit 7754ed59dbe35dbfea70aa61c082e9fea534c751
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 20 04:06:32 2016 +0000
+
+    removed mention of timesync in debian/control
+
+commit 60ab7945932e09791c6260b66ade21c86120f25b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Tue Aug 25 14:08:25 2015 +0000
+
+    bumped changelog version
+
 commit 9295a6dab0b779c94ca309aa749ff3519d7a5ce1
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Mon Aug 24 17:47:26 2015 +0000
