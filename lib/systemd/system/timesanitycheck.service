@@ -5,7 +5,8 @@
 [Unit]
 Description=checks if the system clock is between build timestamp and expiration date
 Documentation=https://github.com/Whonix/timesanitycheck
-Wants=bootclockrandomization.service
+
+Before=bootclockrandomization.service
 Before=sdwdate.service
 Before=tor.service
 
