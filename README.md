@@ -9,13 +9,6 @@ network time synchronization tools (such as sdwdate) no longer being able to
 correct the clock; catch eventual bigger bugs in network time synchronization
 tools; and some types of attacks on network time synchronization.
 
-Since notifications in terminal during boot messages are not well visible and
-since manually running timesanitycheck before and after running network time
-synchronization is inconvenient, it is recommended to install the timesync
-package as well, which will automate running timesanitycheck before and after
-running sdwdate and inform the user in case the clock is not sane with
-messages in X as well as in tty1.
-
 (This package description has been [automatically](https://github.com/Whonix/whonix-developer-meta-files/blob/master/debug-steps/packaging-helper-script) extracted and mirrored from `debian/control`.)
 
 # Generic Readme #
@@ -63,7 +56,7 @@ gpg --export 916B8D99C38EAF5E8ADC7A2A8D66066A2EEACCDA | sudo apt-key add -
 3\. Add Whonix's APT repository.
 
 ```
-echo "deb http://sourceforge.net/projects/whonixdevelopermetafiles/files/internal/ wheezy main" > /etc/apt/sources.list.d/whonix.list
+echo "deb http://deb.whonix.org jessie main" > /etc/apt/sources.list.d/whonix.list
 ```
 
 4\. Update your package lists.
