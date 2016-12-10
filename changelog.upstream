@@ -1,3 +1,21 @@
+commit 70816b53ba6a1d252d024fd59b62a2309a07810c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Nov 21 17:43:33 2016 +0000
+
+    readme
+
+commit 1a84fffc263d59162931f6503f0ce33c63695033
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Aug 13 01:26:57 2016 +0200
+
+    fix, Wants=bootclockrandomization.service -> Before=bootclockrandomization.service
+
+commit 6e57e53d521ebb1c71f13805e5aba0b28ae3ce3c
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Mon Apr 25 23:28:00 2016 +0000
+
+    bumped changelog version
+
 commit 7754ed59dbe35dbfea70aa61c082e9fea534c751
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 20 04:06:32 2016 +0000
