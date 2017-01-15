@@ -10,7 +10,7 @@ Build-Depends: debhelper (>= 9), faketime, genmkfile, dh-systemd
 Homepage: https://www.whonix.org/wiki/Dev/TimeSync
 Vcs-Browser: https://github.com/Whonix/timesanitycheck
 Vcs-Git: https://github.com/Whonix/timesanitycheck.git
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 
 Package: timesanitycheck
 Architecture: all
