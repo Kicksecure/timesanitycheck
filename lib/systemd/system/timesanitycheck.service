@@ -9,6 +9,7 @@ Documentation=https://github.com/Whonix/timesanitycheck
 Before=bootclockrandomization.service
 Before=sdwdate.service
 Before=tor.service
+Before=tor@default.service
 
 [Service]
 Type=oneshot
