@@ -1,3 +1,22 @@
+commit 0ba875f6300cdf49aadbc6c2bd24c4f4d5a5d25d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Feb 25 03:32:00 2017 +0000
+
+    make it reuseable by other scripts
+    
+    useful for sdwdate prerequisite test
+    
+    modernize, use systemd, use journal rather than log files,
+    no longer use status files but exit codes
+    
+    https://phabricator.whonix.org/T151
+
+commit dff3fb21cbaac9eb820787182d94bace1a71f33b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Fri Feb 17 14:11:05 2017 +0000
+
+    bumped changelog version
+
 commit 04e6ecdd20733e7ce7834343594127a5ee463d5c
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 10 15:47:52 2017 +0000
