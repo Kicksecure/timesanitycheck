@@ -1,3 +1,17 @@
+commit 5550a75550f089a5d84e4129c3cd28f54cbf7469
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Wed Apr 10 15:32:32 2019 -0400
+
+    remove obsolete postinst script
+    
+    (no longer using tmpfiles)
+
+commit ae1cd7fe127ca22cf093bf068c5e1dec2295a516
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Apr 6 12:17:18 2019 +0000
+
+    bumped changelog version
+
 commit 2b4d846a155d04ae95d3ef79a2d5908b17032e7a
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 4 05:55:52 2019 -0400
