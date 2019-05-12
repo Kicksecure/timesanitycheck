@@ -37,7 +37,7 @@ time_sanity_check() {
    EXPIRATION_TIME="$(date --date="@$EXPIRATION_UNIXTIME")"
 
    ## time_sanity_check_msg_dynamic is used by /usr/share/timesanitycheck/start.
-   ## time_sanity_check_msg_static is used by /usr/lib/anon-shared-helper-scripts/te_pe_tb_check.
+   ## time_sanity_check_msg_static is used by /usr/lib/helper-scripts/te_pe_tb_check.
 
    if [ "$BOOT_UNIXTIME" -lt "$BUILD_UNIXTIME" ]; then
       time_sanity_check_msg_dynamic="The clock is slow.
