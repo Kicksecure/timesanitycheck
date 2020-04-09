@@ -1,3 +1,17 @@
+commit 6bc0c3d2fecd5cd0a1c56949e851a6cb1f6c4a68
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 9 10:42:21 2020 +0000
+
+    no longer depend on logrotate
+    
+    since logs now handled by systemd
+
+commit c064c9bd1cc9748552f5c2dccc9e70af2e24e408
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Thu Apr 2 08:03:10 2020 -0400
+
+    bumped changelog version
+
 commit 201107d605e2c5c942a8b42d8147024d07a08c97
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 2 07:22:53 2020 -0400
