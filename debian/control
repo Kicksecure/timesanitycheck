@@ -13,7 +13,7 @@ Standards-Version: 4.3.0
 
 Package: timesanitycheck
 Architecture: all
-Depends: logrotate, ${misc:Depends}
+Depends: ${misc:Depends}
 Description: Checks if the system clock is sane between build timestamp and expiration date
  Reports, if clock is sane and not slower than build timestamp or faster than
  expiration date (configurable, default currently set to 17 MAY 2033 10:00:00).
