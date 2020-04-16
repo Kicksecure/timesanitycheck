@@ -16,8 +16,10 @@ time_sanity_check() {
       ## Originally, this was a Whonix specific script.
       ## Prefer the eventually existing older version.
       build_timestamp_file="/usr/share/whonix/build_timestamp"
-   elif [ -f /var/lib/anon-dist/build_version ]; then
+   elif [ -f "/var/lib/anon-dist/build_version" ]; then
       build_timestamp_file="/var/lib/anon-dist/build_version"
+   elif [ -f "/var/lib/dist-base-files/build_version" ]; then
+      build_timestamp_file="/var/lib/dist-base-files/build_version"
    else
       ## TODO: What file exists on any system and has a high probability
       ##       of never getting touched?
