@@ -17,8 +17,10 @@ time_sanity_check() {
       ## Prefer the eventually existing older version.
       build_version_file="/usr/share/whonix/build_timestamp"
    elif [ -f "/var/lib/anon-dist/build_version" ]; then
+      ## Legacy.
       build_version_file="/var/lib/anon-dist/build_version"
    elif [ -f "/var/lib/dist-base-files/build_version" ]; then
+      ## Legacy.
       build_version_file="/var/lib/dist-base-files/build_version"
    else
       ## TODO: What file exists on any system and has a high probability
