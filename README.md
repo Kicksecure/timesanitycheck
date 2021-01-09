@@ -10,7 +10,7 @@ correct the clock; catch eventual bigger bugs in network time synchronization
 tools; and some types of attacks on network time synchronization.
 ## How to install `timesanitycheck` using apt-get ##
 
-1\. Download [Whonix's Signing Key]().
+1\. Download Whonix's Signing Key.
 
 ```
 wget https://www.whonix.org/patrick.asc
