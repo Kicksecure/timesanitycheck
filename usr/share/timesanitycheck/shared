@@ -5,11 +5,11 @@
 
 time_sanity_check() {
    ## Expiration date in unixtime.
-   ## date --date '17 MAY 2033 10:00:00' '+%s'
+   ## date --utc --date '17 MAY 2033 10:00:00' '+%s'
    ## 1999936800
    EXPIRATION_UNIXTIME="1999936800"
    ## Convert seconds since the epoch (1970-01-01 UTC) (unixtime) to a date
-   ## date --date="@1999936800"
+   ## date --utc --date="@1999936800"
 
    local build_version_file
    if [ -f "/usr/share/whonix/build_timestamp" ]; then
@@ -29,16 +29,16 @@ time_sanity_check() {
    fi
 
    ## build timestamp
-   BUILD_UNIXTIME="$(date -r "$build_version_file" +%s)"
-   BUILD_TIME="$(date -r "$build_version_file")"
+   BUILD_UNIXTIME="$(date --utc -r "$build_version_file" "+%s")"
+   BUILD_TIME="$(date --utc -r "$build_version_file")"
 
    ## time after boot
-   BOOT_UNIXTIME="$(date +%s)"
-   BOOT_TIME="$(date)"
+   BOOT_UNIXTIME="$(date --utc "+%s")"
+   BOOT_TIME="$(date --utc)"
 
    ## expiration date
    ## EXPIRATION_UNIXTIME variable gets sourced from /etc/default/$NAME
-   EXPIRATION_TIME="$(date --date="@$EXPIRATION_UNIXTIME")"
+   EXPIRATION_TIME="$(date --utc --date="@$EXPIRATION_UNIXTIME")"
 
    ## time_sanity_check_msg_dynamic is used by /usr/share/timesanitycheck/start.
    ## time_sanity_check_msg_static is used by /usr/lib/helper-scripts/te_pe_tb_check.
