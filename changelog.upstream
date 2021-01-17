@@ -1,3 +1,123 @@
+commit bd9b26e427a18e2f6e3f8bd3dd710829f510f70a
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 17 02:12:29 2021 -0500
+
+    fix
+
+commit eac0356dbb7a7d2f71bf9de95ba212c5ad52764b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:44:40 2021 -0500
+
+    export TZ=UTC
+
+commit b670626885d1ac74c9fb2c829c4afcd5bf00b1e8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:22:42 2021 -0500
+
+    export TZ=UTC
+
+commit 9d8619c47dfd6f04bd98f1966cd62f6b923fc76f
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:22:23 2021 -0500
+
+    comment
+
+commit cf5f698c40b45868e4111dac623504eb7fe6b9eb
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:20:38 2021 -0500
+
+    fix, export LC_TIME=C
+
+commit 34dccf3c9ffa67fe544cb66fd7eb9a6b1d4ee31d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:15:38 2021 -0500
+
+    apparmor
+
+commit 62410f08c4cd0e190b2a9c4fe086f8b984607015
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:13:36 2021 -0500
+
+    apparmor
+
+commit 6a170caede0d00238e33f1a3361839483133c460
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:06:46 2021 -0500
+
+    apparmor
+
+commit f893df34f2ddcebbf60b2c49ad9908a43ef6fd3d
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:03:39 2021 -0500
+
+    genmkfile debinstfile
+
+commit d5c147e82da9cb3f350daef354bc3103b81b6ef1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 22:00:33 2021 -0500
+
+    update path
+
+commit ec0e1298d3101e12d399a4a43abdca6c6895b21b
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:58:15 2021 -0500
+
+    export LC_LANG=C
+
+commit de3b6b6a5df1151a49a0bcc2a7f8fbf95ae6d65e
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:57:40 2021 -0500
+
+    add apparmor profile
+
+commit e16cdd057f8913b72d08b2514f0b640e19b206f8
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:53:35 2021 -0500
+
+    refactoring
+
+commit a8561d6a8085954e730a9e7640ac07b781c5dfb9
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:51:47 2021 -0500
+
+    no man page for now
+
+commit eacf5f9471eb154d02ab0a9a49c1a24b75ad9708
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:51:15 2021 -0500
+
+    renamed:    usr/share/timesanitycheck/start -> usr/bin/timesanitycheck
+
+commit ee2497879b585207b9bd263bb0da7ea21268c921
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:50:07 2021 -0500
+
+    new file:   usr/share/timesanitycheck/minimum_unixtime
+
+commit 264f9facd4d065724a0a62fc5a99f346466ff6c1
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:48:59 2021 -0500
+
+    modified:   usr/share/timesanitycheck/date-minium-file-create
+
+commit 3bbbf7a268e06d97aa7bce341d7eb6e5e9e12734
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:46:26 2021 -0500
+
+    new file:   usr/share/timesanitycheck/date-minium-file-create
+
+commit 2a92470c52bc6b21ed2a72f10d8a8385e2492683
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sat Jan 16 21:45:27 2021 -0500
+
+    use hardcoded minimum time file instead of build time
+
+commit 28bfafb60d4f08e584a250201516b6daa8205610
+Author: Patrick Schleizer <adrelanos@riseup.net>
+Date:   Sun Jan 10 23:19:18 2021 -0500
+
+    bumped changelog version
+
 commit 8fd7015d7e2554b837b04cfbaddcb115b04e5aab
 Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sun Jan 10 03:32:36 2021 -0500
