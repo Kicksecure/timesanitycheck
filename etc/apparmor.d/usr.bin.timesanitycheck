@@ -5,10 +5,12 @@
 
 /usr/bin/timesanitycheck flags=(attach_disconnected,complain) {
   #include <abstractions/base>
+  #include <abstractions/bash>
 
-  /{,usr/}/timesanitycheck r,
-  /{,usr/}/bin/date rix,
-  /{,usr/}/bin/cat rix,
+  /usr/bin/timesanitycheck r,
+  /{,usr/}bin/date rix,
+  /{,usr/}bin/cat rix,
+
   /usr/share/timesanitycheck/minimum_unixtime r,
   /lib/*-linux-gnu/** mr,
 
