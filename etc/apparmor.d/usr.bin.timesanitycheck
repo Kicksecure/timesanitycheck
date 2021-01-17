@@ -3,7 +3,7 @@
 
 #include <tunables/global>
 
-/usr/bin/timesanitycheck flags=(attach_disconnected,complain) {
+/usr/bin/timesanitycheck flags=(attach_disconnected) {
   #include <abstractions/base>
   #include <abstractions/bash>
 
@@ -13,6 +13,9 @@
 
   /usr/share/timesanitycheck/minimum_unixtime r,
   /lib/*-linux-gnu/** mr,
+
+  /etc/passwd r,
+  /etc/nsswitch.conf r,
 
   # Site-specific additions and overrides. See local/README for details.
   #include <local/usr.bin.timesanitycheck>
