@@ -64,6 +64,6 @@ Within minimum time $MINIMUM_HUMAN_READABLE_TIME and expiration timestamp $EXPIR
 
 time_sanity_check
 
-echo "$time_sanity_check_msg_dynamic"
+echo "$time_sanity_check_msg_static"
 
 exit $time_sanity_check_exit_code
