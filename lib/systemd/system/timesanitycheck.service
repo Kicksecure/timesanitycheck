@@ -13,7 +13,7 @@ Before=tor@default.service
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/share/timesanitycheck/start
+ExecStart=/usr/bin/timesanitycheck
 
 [Install]
 WantedBy=multi-user.target
