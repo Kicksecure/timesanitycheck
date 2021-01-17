@@ -9,6 +9,7 @@ MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$MYDIR"
 
 export LC_TIME=C
+export TZ=UTC
 
 date_today_human_readable_short="$(date --utc "+%m/%d/%Y")"
 ## Example date_now_human_readable:
