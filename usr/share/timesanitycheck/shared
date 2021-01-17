@@ -11,26 +11,8 @@ time_sanity_check() {
    ## Convert seconds since the epoch (1970-01-01 UTC) (unixtime) to a date
    ## date --utc --date="@1999936800"
 
-   local build_version_file
-   if [ -f "/usr/share/whonix/build_timestamp" ]; then
-      ## Originally, this was a Whonix specific script.
-      ## Prefer the eventually existing older version.
-      build_version_file="/usr/share/whonix/build_timestamp"
-   elif [ -f "/var/lib/anon-dist/build_version" ]; then
-      ## Legacy.
-      build_version_file="/var/lib/anon-dist/build_version"
-   elif [ -f "/var/lib/dist-base-files/build_version" ]; then
-      ## Legacy.
-      build_version_file="/var/lib/dist-base-files/build_version"
-   else
-      ## TODO: What file exists on any system and has a high probability
-      ##       of never getting touched?
-      build_version_file="/usr/share/zoneinfo/UTC"
-   fi
-
-   ## build timestamp
-   BUILD_UNIXTIME="$(date --utc -r "$build_version_file" "+%s")"
-   BUILD_TIME="$(date --utc -r "$build_version_file")"
+   MINIMUM_UNIXTIME="$(cat "/usr/share/timesanitycheck/minimum_unixtime")"
+   MINIMUM_HUMAN_READABLE_TIME="$(date --utc --date "@$MINIMUM_UNIXTIME")"
 
    ## time after boot
    BOOT_UNIXTIME="$(date --utc "+%s")"
@@ -38,25 +20,25 @@ time_sanity_check() {
 
    ## expiration date
    ## EXPIRATION_UNIXTIME variable gets sourced from /etc/default/$NAME
-   EXPIRATION_TIME="$(date --utc --date="@$EXPIRATION_UNIXTIME")"
+   EXPIRATION_TIME="$(date --utc --date="@${EXPIRATION_UNIXTIME}")"
 
    ## time_sanity_check_msg_dynamic is used by /usr/share/timesanitycheck/start.
    ## time_sanity_check_msg_static is used by /usr/lib/helper-scripts/onion-time-pre-script.
 
-   if [ "$BOOT_UNIXTIME" -lt "$BUILD_UNIXTIME" ]; then
+   if [ "$BOOT_UNIXTIME" -lt "$MINIMUM_UNIXTIME" ]; then
       time_sanity_check_msg_dynamic="The clock is slow.
        (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than
- the build timestamp $BUILD_TIME ($BOOT_UNIXTIME).)"
+ the minimum time $MINIMUM_HUMAN_READABLE_TIME ($BOOT_UNIXTIME).)"
        time_sanity_check_msg_static="The clock is slow.
-(Current time is less than the build timestamp $BUILD_TIME.)"
+(Current time is less than the minimum time $MINIMUM_HUMAN_READABLE_TIME.)"
       time_sanity_check_exit_code=2
       return
    fi
 
-   if [ "$BOOT_UNIXTIME" -gt "$EXPIRATION_UNIXTIME" ]; then
+   if [ "$BOOT_UNIXTIME" -gt "${EXPIRATION_UNIXTIME}" ]; then
       time_sanity_check_msg_dynamic="The clock is fast.
        (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than
- the build timestamp $EXPIRATION_TIME ($EXPIRATION_UNIXTIME).)"
+ the minimum time $EXPIRATION_TIME (${EXPIRATION_UNIXTIME}).)"
       time_sanity_check_msg_static="The clock is fast.
 Current time is greater than the expiration timestamp $EXPIRATION_TIME."
       time_sanity_check_exit_code=3
@@ -66,6 +48,6 @@ Current time is greater than the expiration timestamp $EXPIRATION_TIME."
    time_sanity_check_msg_dynamic="The clock is sane.
 Current time $BOOT_TIME ($BOOT_UNIXTIME)."
    time_sanity_check_msg_static="The clock is sane.
-Within build timestamp $BUILD_TIME and expiration timestamp $EXPIRATION_TIME."
+Within minimum time $MINIMUM_HUMAN_READABLE_TIME and expiration timestamp $EXPIRATION_TIME."
    time_sanity_check_exit_code=0
 }
