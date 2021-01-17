@@ -3,6 +3,13 @@
 ## Copyright (C) 2021 - 2021 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
 ## See the file COPYING for copying conditions.
 
+set -e
+
+MYDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$MYDIR"
+
+export LC_TIME=C
+
 date_today_human_readable_short="$(date --utc "+%m/%d/%Y")"
 ## Example date_now_human_readable:
 ## 01/16/2021
