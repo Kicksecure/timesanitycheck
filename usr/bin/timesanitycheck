@@ -11,6 +11,8 @@ time_sanity_check() {
    ## without:
    ## Sun 17 Jan 2021 03:21:02 AM UTC
    export LC_TIME=C
+   ## Just in case.
+   export TZ=UTC
 
    ## Expiration date in unixtime.
    ## date --utc --date '17 MAY 2033 10:00:00' '+%s'
