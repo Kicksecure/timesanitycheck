@@ -6,6 +6,10 @@
 set -e
 
 time_sanity_check() {
+   ## with:
+   ## Sun Jan 17 03:20:53 UTC 2021
+   ## without:
+   ## Sun 17 Jan 2021 03:21:02 AM UTC
    export LC_TIME=C
 
    ## Expiration date in unixtime.
