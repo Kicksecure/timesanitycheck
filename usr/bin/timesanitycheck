@@ -6,6 +6,8 @@
 set -e
 
 time_sanity_check() {
+   export LC_LANG=C
+
    ## Expiration date in unixtime.
    ## date --utc --date '17 MAY 2033 10:00:00' '+%s'
    ## 1999936800
