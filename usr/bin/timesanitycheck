@@ -37,28 +37,26 @@ time_sanity_check() {
 
    if [ "$BOOT_UNIXTIME" -lt "$MINIMUM_UNIXTIME" ]; then
       time_sanity_check_msg_dynamic="The clock is slow.
-       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is less than
- the minimum time $MINIMUM_HUMAN_READABLE_TIME ($BOOT_UNIXTIME).)"
+       (Current time '$BOOT_TIME' ('$BOOT_UNIXTIME') is less than
+ the minimum time '$MINIMUM_HUMAN_READABLE_TIME' ('$BOOT_UNIXTIME').)"
        time_sanity_check_msg_static="The clock is slow.
-(Current time is less than the minimum time $MINIMUM_HUMAN_READABLE_TIME.)"
+(Current time is less than the minimum time '$MINIMUM_HUMAN_READABLE_TIME'.)"
       time_sanity_check_exit_code=2
       return
    fi
 
    if [ "$BOOT_UNIXTIME" -gt "${EXPIRATION_UNIXTIME}" ]; then
       time_sanity_check_msg_dynamic="The clock is fast.
-       (Current time $BOOT_TIME ($BOOT_UNIXTIME) is greater than
- the minimum time $EXPIRATION_TIME (${EXPIRATION_UNIXTIME}).)"
+       (Current time '$BOOT_TIME' ('$BOOT_UNIXTIME') is greater than
+ the minimum time '$EXPIRATION_TIME' ('${EXPIRATION_UNIXTIME}').)"
       time_sanity_check_msg_static="The clock is fast.
-Current time is greater than the expiration timestamp $EXPIRATION_TIME."
+Current time is greater than the expiration timestamp '$EXPIRATION_TIME'."
       time_sanity_check_exit_code=3
       return
    fi
 
-   time_sanity_check_msg_dynamic="The clock is sane.
-Current time $BOOT_TIME ($BOOT_UNIXTIME)."
-   time_sanity_check_msg_static="The clock is sane.
-Within minimum time $MINIMUM_HUMAN_READABLE_TIME and expiration timestamp $EXPIRATION_TIME."
+   time_sanity_check_msg_dynamic="Current time '$BOOT_TIME' ('$BOOT_UNIXTIME')."
+   time_sanity_check_msg_static="Within minimum time '$MINIMUM_HUMAN_READABLE_TIME' and expiration timestamp '$EXPIRATION_TIME', ok."
    time_sanity_check_exit_code=0
 }
 
