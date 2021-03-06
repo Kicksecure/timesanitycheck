@@ -4,18 +4,7 @@
 #include <tunables/global>
 
 /usr/bin/timesanitycheck flags=(attach_disconnected) {
-  #include <abstractions/base>
-  #include <abstractions/bash>
-
-  /usr/bin/timesanitycheck r,
-  /{,usr/}bin/date rix,
-  /{,usr/}bin/cat rix,
-
-  /usr/share/timesanitycheck/minimum_unixtime r,
-  /lib/*-linux-gnu/** mr,
-
-  /etc/passwd r,
-  /etc/nsswitch.conf r,
+  #include <abstractions/timesanitycheck>
 
   # Site-specific additions and overrides. See local/README for details.
   #include <local/usr.bin.timesanitycheck>

@@ -1,0 +1,15 @@
+## Copyright (C) 2021 - 2021 ENCRYPTED SUPPORT LP <adrelanos@riseup.net>
+## See the file COPYING for copying conditions.
+
+  #include <abstractions/base>
+  #include <abstractions/bash>
+
+  /usr/bin/timesanitycheck r,
+  /{,usr/}bin/date rix,
+  /{,usr/}bin/cat rix,
+
+  /usr/share/timesanitycheck/minimum_unixtime r,
+  /lib/*-linux-gnu/** mr,
+
+  /etc/passwd r,
+  /etc/nsswitch.conf r,
