@@ -13,3 +13,5 @@
 
   /etc/passwd r,
   /etc/nsswitch.conf r,
+
+  /dev/tty rw,
