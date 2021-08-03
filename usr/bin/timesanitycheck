@@ -33,7 +33,7 @@ time_sanity_check() {
    EXPIRATION_HUMAN_READABLE_TIME="$(date --utc --date="@${EXPIRATION_UNIXTIME}")"
 
    ## time_sanity_check_msg_dynamic is used by /usr/share/timesanitycheck/start.
-   ## time_sanity_check_msg_static is used by /usr/lib/helper-scripts/onion-time-pre-script.
+   ## time_sanity_check_msg_static is used by /usr/libexec/helper-scripts/onion-time-pre-script.
 
    if [ "$BOOT_UNIXTIME" -lt "$MINIMUM_UNIXTIME" ]; then
       time_sanity_check_msg_dynamic="The clock is slow.
