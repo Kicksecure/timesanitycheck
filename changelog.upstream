@@ -1,3 +1,21 @@
+commit f0e9d156a8d08567aedd0d254b0d442db3335ca8
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Feb 18 10:40:39 2022 -0500
+
+    update usr/share/timesanitycheck/minimum_unixtime
+
+commit 1130faade162bf14bf6da5352a5b51451ca037a9
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Nov 9 14:32:34 2021 -0500
+
+    readme
+
+commit 962b5a105d01da2b7647bbe4001c4a831ecc396b
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 31 19:32:11 2021 -0400
+
+    bumped changelog version
+
 commit a2ae8d50a0ff51fae27b65971f3751b7d071c082
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sun Oct 31 19:31:39 2021 -0400
