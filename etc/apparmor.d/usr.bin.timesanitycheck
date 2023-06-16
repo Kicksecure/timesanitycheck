@@ -1,11 +1,13 @@
+# Last Modified: Fri Jun 16 11:24:22 2023
+include <tunables/global>
+
 ## Copyright (C) 2021 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
 ## See the file COPYING for copying conditions.
 
-#include <tunables/global>
 
 /usr/bin/timesanitycheck flags=(attach_disconnected) {
-  #include <abstractions/timesanitycheck>
+  include <abstractions/consoles>
+  include <abstractions/timesanitycheck>
+  include <local/usr.bin.timesanitycheck>
 
-  # Site-specific additions and overrides. See local/README for details.
-  #include <local/usr.bin.timesanitycheck>
 }
