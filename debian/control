@@ -1,12 +1,12 @@
-## Copyright (C) 2012 - 2023 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## Copyright (C) 2012 - 2023 ENCRYPTED SUPPORT LP <adrelanos@kicksecure.com>
 ## See the file COPYING for copying conditions.
 
 Source: timesanitycheck
 Section: misc
 Priority: optional
-Maintainer: Patrick Schleizer <adrelanos@whonix.org>
+Maintainer: Patrick Schleizer <adrelanos@kicksecure.com>
 Build-Depends: debhelper (>= 13), debhelper-compat (= 13), dh-apparmor
-Homepage: https://www.kicksecure.com/wiki/Dev/TimeSync
+Homepage: https://www.whonix.org/wiki/Dev/TimeSync
 Vcs-Browser: https://github.com/Kicksecure/timesanitycheck
 Vcs-Git: https://github.com/Kicksecure/timesanitycheck.git
 Standards-Version: 4.6.2
