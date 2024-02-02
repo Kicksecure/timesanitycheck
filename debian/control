@@ -5,7 +5,7 @@ Source: timesanitycheck
 Section: misc
 Priority: optional
 Maintainer: Patrick Schleizer <adrelanos@kicksecure.com>
-Build-Depends: debhelper (>= 13), debhelper-compat (= 13), dh-apparmor
+Build-Depends: debhelper (>= 13.11.6), debhelper-compat (= 13), dh-apparmor
 Homepage: https://www.whonix.org/wiki/Dev/TimeSync
 Vcs-Browser: https://github.com/Kicksecure/timesanitycheck
 Vcs-Git: https://github.com/Kicksecure/timesanitycheck.git
