@@ -1,3 +1,15 @@
+commit bdc0d47f93d46ca406da52b0c35b8d18972002f3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Oct 26 08:48:00 2025 -0400
+
+    update minimum_unixtime
+
+commit afccb36fabe190c2fbe65faed63822dfbb0288e3
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 2 15:29:36 2025 +0000
+
+    bumped changelog version
+
 commit 1632280f1c95b50a53a31ca2c795c76d3c524c04
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Tue Aug 26 09:20:14 2025 +0000
