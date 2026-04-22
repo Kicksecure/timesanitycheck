@@ -1,3 +1,15 @@
+commit 09e7facc8e2d956451348fb20652dc8543b69857
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Apr 22 06:20:26 2026 -0400
+
+    update minimum_unixtime
+
+commit 42906752b7e67b81f366f4f13bf046fb1abac067
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Wed Apr 8 12:37:01 2026 +0000
+
+    bumped changelog version
+
 commit c5bf8a64644fef8c157060b6bbcf12c3f071bc4c
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Wed Apr 8 05:15:19 2026 -0400
@@ -363,7 +375,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Sat Nov 11 13:41:30 2023 -0500
 
     change license to AGPL-3+
-    
+
     https://forums.whonix.org/t/license-change-to-agplv3/17455
 
 commit 22911abafb1ba711091e2bb0daf68016c654f0d5
@@ -611,7 +623,7 @@ Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Mon Mar 15 06:40:10 2021 -0400
 
     apparmor
-    
+
     AVC apparmor="DENIED" operation="open" profile="/usr/bin/timesanitycheck" name="/dev/tty" comm="timesanitycheck" requested_mask="wr" denied_mask="wr"
 
 commit 925a48a47662faf883cb4e3f64d5b1cfc9f4c08c
@@ -853,7 +865,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Thu Apr 9 10:42:21 2020 +0000
 
     no longer depend on logrotate
-    
+
     since logs now handled by systemd
 
 commit c064c9bd1cc9748552f5c2dccc9e70af2e24e408
@@ -963,7 +975,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Wed Apr 10 15:32:32 2019 -0400
 
     remove obsolete postinst script
-    
+
     (no longer using tmpfiles)
 
 commit ae1cd7fe127ca22cf093bf068c5e1dec2295a516
@@ -1013,18 +1025,18 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Mar 1 14:32:42 2019 +0000
 
     add improved legal protections clauses
-    
+
     The license for software created by Whonix is the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version with additional terms applicable per GNU GPL version 3 section 7.
-    
+
     The additional terms are based on the Doom 3 license which is Debian refers to as `GPL-3+-with-id-software-additional-terms`, which is Debian DFSG [1] (The Debian Free Software Guidelines) approved and which is therefore suitable for Debian `main`. Whonix made applied minimal changes to it:
-    
+
     * Rewrite `The Doom 3 BFG Edition GPL Source Code` to the more common `this program` which is used throughout the GPL.
     * Added a "trump clause" [2], in other words, any conflicts or disputes between the additional terms and the GPLv3 shall be resolved in favor of the GPLv3 by adding `Notwithstanding any other provision of this License` (as mentioned in GPL FAQ [3]) at the beginning of the additional terms.
-    
+
     [1] https://www.debian.org/social_contract#guidelines
     [2] https://www.fsf.org/news/canonical-updated-licensing-terms
     [3] https://www.gnu.org/licenses/gpl-faq.html#v3Notwithstanding
-    
+
     For more considerations, see also:
     https://www.whonix.org/wiki/Dev/Licensing
 
@@ -1099,12 +1111,12 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Sat Feb 25 03:32:00 2017 +0000
 
     make it reuseable by other scripts
-    
+
     useful for sdwdate prerequisite test
-    
+
     modernize, use systemd, use journal rather than log files,
     no longer use status files but exit codes
-    
+
     https://phabricator.whonix.org/T151
 
 commit dff3fb21cbaac9eb820787182d94bace1a71f33b
@@ -1118,7 +1130,7 @@ Author: Patrick Schleizer <adrelanos@riseup.net>
 Date:   Fri Feb 10 15:47:52 2017 +0000
 
     remove faketime from Build-Depends:
-    
+
     since no longer used for reproducible builds
 
 commit d7370aeb0264ef4d2a0af34a4dafaea12a144754
