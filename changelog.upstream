@@ -1,8 +1,123 @@
+commit 17d635ffcb1a77029ae8556f0d1c8fb5899244bf
+Merge: 6916457 143bdf0
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Aug 30 10:20:58 2026 -0400
+
+    Merge remote-tracking branch 'refs/remotes/ArrayBolt3/arraybolt3/trixie'
+
+commit 143bdf0089100d9450fcaaefeaff7829272fe634
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Wed Aug 26 21:55:11 2026 -0400
+
+    Polish AI-generated changes
+
+commit c60d966544bb571588bad8cf65b8f113cf9df7b1
+Merge: 6916457 e83aa38
+Author: Aaron Rainbolt <arraybolt3@gmail.com>
+Date:   Wed Aug 26 21:47:58 2026 -0400
+
+    Merge branch 'ai' into arraybolt3/trixie
+
+commit 6916457e74ecc6315f55a077d4eb9f528d390cb2
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Fri Aug 21 09:04:05 2026 +0000
+
+    bumped changelog version
+
 commit 9eb666e4cb6500cd7028674447704ce1b079e29f
 Author: Patrick Schleizer <adrelanos@whonix.org>
 Date:   Fri Aug 21 02:19:52 2026 -0400
 
     update minimum_unixtime
+
+commit e83aa38eff26e1f013e6acfab683994f1b5af962
+Author: claude (dev182 e09ec5cf-4ebf-4e1b-88e5-55fbac6ef1d3) <noreply@anthropic.com>
+Date:   Mon Aug 10 13:51:09 2026 -0400
+
+    timesanitycheck: fix wrong unixtime and label in dynamic messages
+
+    The clock-slow message printed BOOT_UNIXTIME again where it meant to
+    show the minimum time's unixtime, so both parenthesized values were the
+    current time. The clock-fast message labelled the expiration time as
+    "the minimum time". Show MINIMUM_UNIXTIME and correct the label so the
+    diagnostic reflects the actual comparison.
+
+    Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>
+
+commit c1aa9da1401ba4434cdf02d893fbf69e3523e853
+Author: claude (dev163 38f9745c-aed1-4fb4-b6ae-9899f20f8de2) <noreply@anthropic.com>
+Date:   Sat Aug 8 04:56:28 2026 -0400
+
+    CI: enrol in the pre-push static gate
+
+    This repo had no GitHub Actions workflow at all, so nothing verified its PRs on
+    the server side -- the only gate was ci-repro run locally.
+
+    The workflow file is the canonical consumer template, copied verbatim from
+    developer-meta-files/consumer-templates/.github/workflows/. It is managed: once
+    present, dm-packaging-helper-script's pkg_update_consumer_workflows keeps it in
+    sync, so it must not be hand-edited here.
+
+    Enrolment is deliberately a SEPARATE act from propagation: that function uses
+    pkg_update_if_exists, which only updates a workflow that already exists, and
+    pkg_install_dependabot_yml skips any repo with no .github/workflows/ directory.
+    Neither creates the first one. Hence this commit.
+
+    Scope: the repos this session actually changed and that ship shell code -- not
+    every repo lacking CI. Enrolling a repo consumes shared org-wide Actions
+    concurrency (20 jobs, the real limit; public repos are not minute-billed), so it
+    is worth spending where there is signal.
+
+    Verified BEFORE enrolling: 'ci-repro.sh --worktree' passes for this repo, so the
+    gate arrives green rather than turning someone's PR red on arrival.
+
+    NOTE, so it is not a surprise: creating .github/workflows/ makes this repo
+    eligible for the canonical .github/dependabot.yml on the next propagation pass,
+    which pkg_install_dependabot_yml installs into any repo that uses Actions.
+
+commit 1f9395e25c3a64373937d08c4c207f2a05a84f8b
+Author: claude (dev163 38f9745c-aed1-4fb4-b6ae-9899f20f8de2) <noreply@anthropic.com>
+Date:   Fri Aug 7 13:31:57 2026 -0400
+
+    timesanitycheck: R-010 strict mode
+
+    usr/bin/timesanitycheck compares the clock against a minimum and an expiration
+    timestamp and reports 0, 2 or 3. onion-time-pre-script RUNS it -- it does not
+    source it -- and reads both its stdout and its exit code, so both are the
+    contract.
+
+    No nounset traps: every branch assigns all three of its outputs before the
+    function returns. The change is the preamble, braces, 'cat --', and
+    'echo' -> printf (R-034).
+
+    Dead variable, flagged rather than deleted
+    --------------------------------------------
+
+    time_sanity_check_msg_dynamic is built three times and read NOWHERE. The
+    comment claimed it was used by /usr/share/timesanitycheck/start; that file no
+    longer exists -- usr/share/timesanitycheck/ now holds only
+    date-minimum-file-create and minimum_unixtime -- and a grep across every
+    package finds no other reader. The comment now says so, and SC2034 is waived
+    file-wide because the variable is assigned at three separate points. Whether
+    the richer message should be revived is a product question, not a strict-mode
+    one.
+
+    Testing
+    -------
+
+    Gate exit 0 in an ISOLATED checkout.
+
+    New harness at ~/strict-pass-tests/tsc-test/. The clock cannot be moved in the
+    sandbox, so the MINIMUM file is what varies -- to this script a minimum in the
+    future is indistinguishable from a slow clock. Five cases: minimum in the past,
+    minimum in the future, and the file empty, non-numeric and missing.
+
+      5 same, 0 differing
+
+    Canary: changing the slow-clock verdict from exit 2 to exit 0 -- a clock the
+    caller would then treat as trustworthy -- is caught as
+    'old exit=2 new exit=0'. The harness compares the verdict, not just that the
+    script ran.
 
 commit 8fbc75ec1a9528c19d79deb2bbe7ebd05ff3bf06
 Author: Patrick Schleizer <adrelanos@whonix.org>
