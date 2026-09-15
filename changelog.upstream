@@ -1,3 +1,15 @@
+commit 3a55819ac4e82d6fc08f9cde740f9dde8b5c1ceb
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Tue Sep 15 11:26:08 2026 -0400
+
+    update minimum_unixtime
+
+commit 96e4a70c5fc1eabec05aed7ca24fb532a58059fa
+Author: Patrick Schleizer <adrelanos@whonix.org>
+Date:   Sun Sep 6 17:03:17 2026 +0000
+
+    bumped changelog version
+
 commit 17d635ffcb1a77029ae8556f0d1c8fb5899244bf
 Merge: 6916457 143bdf0
 Author: Patrick Schleizer <adrelanos@whonix.org>
